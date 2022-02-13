@@ -14,6 +14,22 @@ addProductBtn.addEventListener("click", function () {
   const itemPrice = document.getElementById("item-price-input");
   const itemQuantity = document.getElementById("item-quantity-input");
 
+  if (
+    itemName.value == "" ||
+    itemPrice.value < 0 ||
+    itemQuantity.value < 0 ||
+    itemPrice.value == "" ||
+    itemQuantity.value == ""
+  ) {
+    console.log("sorry");
+    alert("Please enter valid input");
+    // clear input
+    itemName.value = "";
+    itemPrice.value = "";
+    itemQuantity.value = "";
+    return;
+  }
+
   const totalPrice = parseFloat(itemPrice.value) * parseInt(itemQuantity.value);
   const tr = document.createElement("tr");
   const th = document.createElement("th");
